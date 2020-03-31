@@ -10,8 +10,28 @@ class Home extends StatelessWidget{
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text("First children"),
-            Text("Second children"),
+            Container(
+              margin: EdgeInsets.only(bottom: 30),
+              child: Text("Select the lenguage your preffer", style: TextStyle(color: Colors.white, letterSpacing: 2),),
+            ),
+            RaisedButton.icon(
+              onPressed: (){}, 
+              color: Colors.black,
+              icon: Icon(
+                Icons.airplay,
+                color:Colors.blue,
+              ), 
+              label: Text("Deutsch", style:TextStyle(color:Colors.white),)
+              ),
+            RaisedButton.icon(
+              onPressed: (){},
+              color: Colors.black,
+              icon: Icon(
+                Icons.add_circle_outline,
+                color:Colors.blue
+              ), 
+              label: Text("English", style: TextStyle(color:Colors.white),)
+              ),
           ],
         ),
       ),
