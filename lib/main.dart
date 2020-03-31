@@ -17,7 +17,7 @@ class Router{
         return MaterialPageRoute(builder: (_)=> Home());
       case '/bikes':
         var data = settings.arguments as String;
-        return MaterialPageRoute(builder: (_) => BikeState(data));
+        return MaterialPageRoute(builder: (_) => Bikes(data));
       default:
         return MaterialPageRoute(
           builder: (_)=> Scaffold(
