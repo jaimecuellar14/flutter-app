@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class Home extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       backgroundColor: Colors.grey,
       body: Center(
@@ -15,7 +14,7 @@ class Home extends StatelessWidget{
               child: Text("Select the lenguage your preffer", style: TextStyle(color: Colors.white, letterSpacing: 2),),
             ),
             RaisedButton.icon(
-              onPressed: (){}, 
+              onPressed: (){Navigator.pushNamed(context, '/bikes-de');}, 
               color: Colors.black,
               icon: Icon(
                 Icons.airplay,
@@ -24,7 +23,7 @@ class Home extends StatelessWidget{
               label: Text("Deutsch", style:TextStyle(color:Colors.white),)
               ),
             RaisedButton.icon(
-              onPressed: (){},
+              onPressed: (){Navigator.pushNamed(context, '/bikes-en');},
               color: Colors.black,
               icon: Icon(
                 Icons.add_circle_outline,

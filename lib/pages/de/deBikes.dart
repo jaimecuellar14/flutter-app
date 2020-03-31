@@ -1,0 +1,24 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+class deBikesState extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return new deBikes();
+  }
+}
+
+class deBikes extends State<deBikesState>{
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Deutsch"),
+      ),
+      body: Text("Bikes on deutsch"),
+    );
+  }
+
+}
