@@ -1,8 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:internetstores/pages/home.dart';
-import 'package:internetstores/pages/en/bikes.dart';
-import 'package:internetstores/pages/de/deBikes.dart';
+import 'package:internetstores/pages/bikes.dart';
 
 void main() => runApp(
   MaterialApp(
@@ -16,10 +15,9 @@ class Router{
     switch(settings.name){
       case '/':
         return MaterialPageRoute(builder: (_)=> Home());
-      case '/bikes-en':
-        return MaterialPageRoute(builder: (_)=>BikeState());
-      case '/bikes-de':
-        return MaterialPageRoute(builder:(_)=>deBikesState());
+      case '/bikes':
+        var data = settings.arguments as String;
+        return MaterialPageRoute(builder: (_) => BikeState(data));
       default:
         return MaterialPageRoute(
           builder: (_)=> Scaffold(

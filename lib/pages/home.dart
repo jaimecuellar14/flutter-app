@@ -14,7 +14,7 @@ class Home extends StatelessWidget{
               child: Text("Select the lenguage your preffer", style: TextStyle(color: Colors.white, letterSpacing: 2),),
             ),
             RaisedButton.icon(
-              onPressed: (){Navigator.pushNamed(context, '/bikes-de');}, 
+              onPressed: (){Navigator.pushNamed(context, '/bikes',arguments: "Deutsch");}, 
               color: Colors.black,
               icon: Icon(
                 Icons.airplay,
@@ -23,7 +23,7 @@ class Home extends StatelessWidget{
               label: Text("Deutsch", style:TextStyle(color:Colors.white),)
               ),
             RaisedButton.icon(
-              onPressed: (){Navigator.pushNamed(context, '/bikes-en');},
+              onPressed: (){Navigator.pushNamed(context, '/bikes',arguments:'English');},
               color: Colors.black,
               icon: Icon(
                 Icons.add_circle_outline,
