@@ -1,7 +1,9 @@
 
 import 'package:flutter/material.dart';
+import 'package:internetstores/models/BikeModel.dart';
 import 'package:internetstores/pages/home.dart';
 import 'package:internetstores/pages/bikes.dart';
+import 'package:internetstores/pages/BikeInfo.dart';
 
 void main() => runApp(
   MaterialApp(
@@ -18,6 +20,9 @@ class Router{
       case '/bikes':
         var data = settings.arguments as String;
         return MaterialPageRoute(builder: (_) => Bikes(data));
+      case '/bikeInfo':
+        var bike = settings.arguments as BikeModel;
+        return MaterialPageRoute(builder: (_)=> BikeInfo(bike));
       default:
         return MaterialPageRoute(
           builder: (_)=> Scaffold(

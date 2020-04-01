@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:internetstores/models/BikeModel.dart';
+import 'package:internetstores/pages/BikeCard.dart';
 
 class Bikes extends StatefulWidget{
   final String data;
@@ -21,11 +23,13 @@ class BikesState extends State<Bikes>{
   dynamic bikeData;
   loadBikesData() async {
     String data = await rootBundle.loadString('lib/assets/ISBikesData.json');
-    List<dynamic> jsonResult = json.decode(data);
+    List<BikeModel> jsonResponse = (json.decode(data) as List)
+                    .map((bike)=> BikeModel.fromJson(bike))
+                    .toList();
     
     //print(jsonResult);
     setState((){
-      bikeData = jsonResult;
+      bikeData = jsonResponse;
     });
   }
   @override
@@ -37,7 +41,7 @@ class BikesState extends State<Bikes>{
   }
 
   void printData(){
-    print(bikeData[0]);
+    print(bikeData);
   }
   @override
   Widget build(BuildContext context) {
@@ -51,14 +55,14 @@ class BikesState extends State<Bikes>{
         
       ),
       body: Center(
-        child: Column(
-          children: <Widget>[
-            Text("The lenguage of this page is ${data}"),
-            FlatButton(
-              onPressed: (){printData();}, child: Text("Ver data"),
-            )
-          ],
-        ),
+        child: ListView.builder(itemCount: bikeData.length,
+            itemBuilder: (BuildContext context, int index)
+            {
+              return Center(
+                child: BikeCard(bikeData[index])
+              );
+            },
+            ),
       )
     );
   }
