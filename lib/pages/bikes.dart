@@ -40,7 +40,12 @@ class BikesState extends State<Bikes>{
     });
   }
 
-  void printData(){
+  void addBike(){
+    setState(() {
+      int size = bikeData.length;
+      bikeData.add(new BikeModel(size+1,"test","test","test","test","test","test","test"));
+    });
+
     print(bikeData);
   }
   @override
@@ -59,11 +64,12 @@ class BikesState extends State<Bikes>{
             itemBuilder: (BuildContext context, int index)
             {
               return Center(
-                child: BikeCard(bikeData[index])
+                child: BikeCard(bikeData[index]),
               );
             },
             ),
-      )
+      ),
+      floatingActionButton: FloatingActionButton(onPressed: (){addBike();}, child: Icon(Icons.add,color: Colors.white,),backgroundColor: Colors.blue,),
     );
   }
 

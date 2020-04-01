@@ -20,6 +20,7 @@ class BikeInfoState extends State<BikeInfo>{
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
+      appBar: AppBar(title:Text("${bike.name}"),backgroundColor: Colors.black,),
       body: SafeArea(
               child: Column(
               children: <Widget>[

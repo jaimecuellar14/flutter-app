@@ -27,7 +27,9 @@ class BikeCardState extends State<BikeCard>{
       ),
       color: Colors.black,
       elevation: 10,
-      child: Column(
+      child: InkWell(
+        onTap: (){Navigator.pushNamed(context, '/bikeInfo', arguments: bike);},
+        child:  Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
            ListTile(
@@ -39,14 +41,15 @@ class BikeCardState extends State<BikeCard>{
             child: ButtonBar(
               children: <Widget>[
                 FlatButton(
-                  child: const Text('Check bike out', style: TextStyle(color: Colors.white)),
-                  onPressed: () {Navigator.pushNamed(context, '/bikeInfo', arguments: bike);},
-                ),
+                  child: const Text("Remove", style:TextStyle(color:Colors.red)),
+                  onPressed: (){print("Removing : ${bike.id}");},
+                )
               ],
             ),
           ),
         ],
-      ),
+        ),
+      )
     ),
   );
   }

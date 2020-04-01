@@ -1,15 +1,25 @@
 class BikeModel {
-  final int id;
-  final String framesize;
-  final String category;
-  final String location;
-  final String name;
-  final String photoUrl;
-  final String priceRange;
-  final String description;
+  int id;
+  String framesize;
+  String category;
+  String location;
+  String name;
+  String photoUrl;
+  String priceRange;
+  String description;
 
   BikeModel._({this.id,this.framesize,this.category,this.location,this.name,this.photoUrl,this.priceRange,this.description});
-
+  BikeModel(int id, String framesize, String category, String location,
+   String name, String photoUrl, String priceRange, String description){
+     this.id = id;
+     this.framesize = framesize;
+     this.category = category;
+     this.location = location;
+     this.name = name;
+     this.photoUrl = photoUrl;
+     this.priceRange = priceRange;
+     this.description = description;
+  }
   factory BikeModel.fromJson(Map<String,dynamic> json){
     return new BikeModel._(
       id: json['id'],
