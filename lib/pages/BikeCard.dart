@@ -17,6 +17,7 @@ class BikeCardState extends State<BikeCard>{
   @override
   final BikeModel bike;
   BikeCardState(this.bike);
+
   Widget build(BuildContext context) {
     // TODO: implement build
     return  Container(
@@ -40,8 +41,9 @@ class BikeCardState extends State<BikeCard>{
           ButtonTheme.bar(
             child: ButtonBar(
               children: <Widget>[
+                
                 FlatButton(
-                  child: const Text("Remove", style:TextStyle(color:Colors.red)),
+                  child: const Text("Remove", style:TextStyle(color:Colors.white)),
                   onPressed: (){print("Removing : ${bike.id}");},
                 )
               ],

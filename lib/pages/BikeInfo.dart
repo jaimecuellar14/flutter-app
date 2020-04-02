@@ -21,15 +21,64 @@ class BikeInfoState extends State<BikeInfo>{
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(title:Text("${bike.name}"),backgroundColor: Colors.black,),
-      body: SafeArea(
-              child: Column(
-              children: <Widget>[
-                Text("${bike.name}"),
-                Text("${bike.description}"),
-                Text("${bike.framesize}"),
-                Text("${bike.priceRange}"),
-              ],
-            ),
+      body: Container(
+        child: Center(
+          child: Column(
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.only(top:30),
+                child:Image.network("${bike.photoUrl}"),
+              ),
+              Column(
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.only(top: 20),
+                    child: Text("${bike.name}", style: TextStyle(fontSize: 20, letterSpacing: 3),),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 20),
+                    child: Text("${bike.description}"),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top:20),
+                    child: Column(
+                      children: <Widget>[
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Icon(Icons.location_on, color: Colors.black,),
+                            Text("${bike.location}")
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Icon(Icons.monetization_on, color:Colors.black),
+                            Text("${bike.priceRange}"),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Icon(Icons.category, color:Colors.black),
+                            Text("${bike.category}")
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Icon(Icons.format_size, color:Colors.black),
+                            Text("Frame size: ${bike.framesize}")
+                          ],
+                        )
+                      ],
+                    )
+                  )
+                ],
+              )
+            ],
+          ),
+        ),
       ),
     );
   }

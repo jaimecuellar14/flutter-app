@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:internetstores/models/BikeModel.dart';
-import 'package:internetstores/pages/BikeCard.dart';
+import 'package:internetstores/pages/BikeList.dart';
 
 class Bikes extends StatefulWidget{
   final String data;
@@ -32,6 +32,7 @@ class BikesState extends State<Bikes>{
       bikeData = jsonResponse;
     });
   }
+  dynamic get _bikeData => bikeData;
   @override
   void initState(){
     super.initState();
@@ -59,17 +60,22 @@ class BikesState extends State<Bikes>{
         backgroundColor: Colors.black,
         
       ),
-      body: Center(
+      body: Container(
+        child: Center(
+          child: BikeList(),
+        ),
+      ),
+      /* Center(
         child: ListView.builder(itemCount: bikeData.length,
             itemBuilder: (BuildContext context, int index)
             {
               return Center(
-                child: BikeCard(bikeData[index]),
+                child: BikeCard(bikeData[index])
               );
             },
             ),
-      ),
-      floatingActionButton: FloatingActionButton(onPressed: (){addBike();}, child: Icon(Icons.add,color: Colors.white,),backgroundColor: Colors.blue,),
+      ),*/
+      //floatingActionButton: FloatingActionButton(onPressed: (){addBike();}, child: Icon(Icons.add,color: Colors.white,),backgroundColor: Colors.blue,),
     );
   }
 
