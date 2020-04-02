@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
@@ -39,6 +40,7 @@ class BikeListState extends State<BikeList>{
   }
 
   void addBike(){
+    showToast(context, "Bike added");
     setState(() {
       int size = bikesData.length;
       bikesData.add(new BikeModel(size+1,"test","test","test","test","test","test","test"));
@@ -47,10 +49,24 @@ class BikeListState extends State<BikeList>{
     print(bikesData);
   }
   void removeBike(id){
+    showToast(context, "Bike removed");
     print(id);
     setState(() {
       bikesData.removeWhere((item)=> item.id==id);      
     });
+  }
+  void showToast(BuildContext context, String message){
+    final scaffold = Scaffold.of(context);
+    scaffold.showSnackBar(
+      SnackBar(
+        content: Text("$message"),
+        action: SnackBarAction(
+          label:"OK",
+          onPressed: (){scaffold.hideCurrentSnackBar();},
+        ),
+      )
+    );
+    Timer(Duration(milliseconds:1500),()=>scaffold.hideCurrentSnackBar());
   }
   @override
   Widget build(BuildContext context) {

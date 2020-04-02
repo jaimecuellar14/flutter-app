@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "669295134580",
+    "firebase_url": "https://internetstores-9c010.firebaseio.com",
+    "project_id": "internetstores-9c010",
+    "storage_bucket": "internetstores-9c010.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:669295134580:android:3881424de2f4cfc39a8e21",
+        "android_client_info": {
+          "package_name": "com.example.internetstores"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "669295134580-8er6prbka0pvp6m21bge66ug30lqn26k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSf63vGokfRgtix80XVizOAmkc5mmFPkc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "669295134580-8er6prbka0pvp6m21bge66ug30lqn26k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
