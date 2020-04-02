@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:internetstores/models/BikeModel.dart';
+import 'package:internetstores/services/Database.dart';
 
 class BikeList extends StatefulWidget{
   @override
@@ -26,11 +27,17 @@ class BikeListState extends State<BikeList>{
                     .toList();
     
     //print(jsonResult);
+    addToFireStore(jsonResponse);
     setState((){
       bikesData = jsonResponse;
     });
   }
 
+  void addToFireStore(bikes){
+    bikes.map((elem) async =>{
+      await DatabaseService().addBikesToFireStore(elem.id, elem.name, elem.frameSize, elem.category, elem.location, elem.photoUrl, elem.priceRange, elem.description)
+    });
+  }
   @override
   void initState(){
     super.initState();
