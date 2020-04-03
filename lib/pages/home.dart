@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:country_icons/country_icons.dart';
 
 
 class Home extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: Colors.grey[600],
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -16,22 +15,22 @@ class Home extends StatelessWidget{
               child: Text("Select the lenguage your preffer", style: TextStyle(color: Colors.white, letterSpacing: 2),),
             ),
             RaisedButton.icon(
-              onPressed: (){Navigator.pushNamed(context, '/bikes',arguments: "Deutsch");}, 
+              onPressed: (){Navigator.pushNamed(context, '/firebaseBikes', arguments:"Firebase implementation");}, 
               color: Colors.black,
               icon: Icon(
-                Icons.airplay,
+                Icons.cloud_circle,
                 color:Colors.blue,
               ), 
-              label: Text("Deutsch", style:TextStyle(color:Colors.white),)
+              label: Text("Firebase implementation", style:TextStyle(color:Colors.white),)
               ),
             RaisedButton.icon(
-              onPressed: (){Navigator.pushNamed(context, '/bikes',arguments:'English');},
+              onPressed: (){Navigator.pushNamed(context, '/bikes',arguments:'Normal implementation');},
               color: Colors.black,
               icon: Icon(
-                Icons.add_circle_outline,
+                Icons.computer,
                 color:Colors.blue
               ), 
-              label: Text("English", style: TextStyle(color:Colors.white),)
+              label: Text("Regular implementation", style: TextStyle(color:Colors.white),)
               ),
           ],
         ),

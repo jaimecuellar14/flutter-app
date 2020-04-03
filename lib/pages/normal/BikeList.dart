@@ -18,6 +18,7 @@ class BikeList extends StatefulWidget{
 
 class BikeListState extends State<BikeList>{
   List<BikeModel> bikesData;
+  dynamic test;
 
 
   loadBikesData() async{
@@ -26,18 +27,12 @@ class BikeListState extends State<BikeList>{
                     .map((bike)=> BikeModel.fromJson(bike))
                     .toList();
     
-    //print(jsonResult);
-    addToFireStore(jsonResponse);
     setState((){
       bikesData = jsonResponse;
     });
   }
 
-  void addToFireStore(bikes){
-    bikes.map((elem) async =>{
-      await DatabaseService().addBikesToFireStore(elem.id, elem.name, elem.frameSize, elem.category, elem.location, elem.photoUrl, elem.priceRange, elem.description)
-    });
-  }
+  
   @override
   void initState(){
     super.initState();
@@ -50,7 +45,8 @@ class BikeListState extends State<BikeList>{
     showToast(context, "Bike added");
     setState(() {
       int size = bikesData.length;
-      bikesData.add(new BikeModel(size+1,"test","test","test","test","test","test","test"));
+      bikesData.add(new BikeModel(size+1,"M", "Mountain", "Stuttgart", "Best bike", "https://images.internetstores.de/products//1066124/02/98ba28/Cube_Town_Hybrid_Pro_500_Easy_Entry_black_n_green[640x480].jpg?forceSize=true&forceAspectRatio=true&useTrim=true",
+     "Normal", "The best bike"));
     });
 
     print(bikesData);

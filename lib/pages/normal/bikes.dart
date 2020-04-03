@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:internetstores/pages/BikeList.dart';
+import 'package:internetstores/pages/normal/BikeList.dart';
 
 class Bikes extends StatefulWidget{
   final String data;
@@ -27,24 +27,13 @@ class BikesState extends State<Bikes>{
         automaticallyImplyLeading: false,
         title: Text("${data} page"),
         backgroundColor: Colors.black,
-        
+        centerTitle: true,
       ),
       body: Container(
         child: Center(
           child: BikeList(),
         ),
       ),
-      /* Center(
-        child: ListView.builder(itemCount: bikeData.length,
-            itemBuilder: (BuildContext context, int index)
-            {
-              return Center(
-                child: BikeCard(bikeData[index])
-              );
-            },
-            ),
-      ),*/
-      //floatingActionButton: FloatingActionButton(onPressed: (){addBike();}, child: Icon(Icons.add,color: Colors.white,),backgroundColor: Colors.blue,),
     );
   }
 

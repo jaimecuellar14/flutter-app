@@ -2,21 +2,56 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:internetstores/models/BikeModel.dart';
 class DatabaseService {
   
-  final CollectionReference bikesCollection = Firestore.instance.collection('bikes');
+  final databaseReference = Firestore.instance;
 
-  Future addBikesToFireStore(int id, String name, String frameSize, String category, 
-  String location, String photoUrl, String priceRange, String description) async {
-    print("Trying to add to firebase");
-    return await bikesCollection.document().setData({
-      'id':id,
-      'name':name,
-      'frameSize':frameSize,
-      'category':category,
-      'location':location,
-      'photoUrl': photoUrl,
-      'priceRange':priceRange,
-      'description':description
-    });
+  void addBikesToFireStore(BikeModel bike) async{
+    databaseReference.collection("bikes")
+      .document(bike.id.toString())
+      .setData({
+        'name':bike.name,
+        'description':bike.description,
+        'priceRange':bike.priceRange,
+        'frameSize':bike.framesize,
+        'location':bike.location,
+        'category':bike.category,
+        'photoUrl':bike.photoUrl
+      });
   }
 
+  List<BikeModel> _bikesFromSnapshot(QuerySnapshot snapshot){
+    return snapshot.documents.map((doc){
+      return BikeModel(
+        int.tryParse(doc.documentID),
+        doc.data['frameSize'],
+        doc.data['category'],
+        doc.data['location'],
+        doc.data['name'],
+        doc.data['photoUrl'],
+        doc.data['priceRage'],
+        doc.data['description']
+      );
+    }).toList();
+  }
+
+  Stream<List<BikeModel>> get bikes {
+    return databaseReference.collection("bikes")
+              .snapshots()
+              .map(_bikesFromSnapshot);
+  }
+
+  getBikes() async {
+    QuerySnapshot querySnapshot = await databaseReference.collection("bikes")
+                                    .getDocuments();
+    return querySnapshot.documents;
+  }
+  void deleteBike(id){
+    try{
+      databaseReference.collection("bikes")
+        .document(id.toString())
+        .delete();
+    }catch(e){
+      print(e.toString());
+    }
+  }
+  
 }
