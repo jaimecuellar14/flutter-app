@@ -12,7 +12,7 @@ class Home extends StatelessWidget{
           children: <Widget>[
             Container(
               margin: EdgeInsets.only(bottom: 30),
-              child: Text("Select the lenguage your preffer", style: TextStyle(color: Colors.white, letterSpacing: 2),),
+              child: Text("Select an implementation", style: TextStyle(color: Colors.white, letterSpacing: 2),),
             ),
             RaisedButton.icon(
               onPressed: (){Navigator.pushNamed(context, '/firebaseBikes', arguments:"Firebase implementation");}, 
