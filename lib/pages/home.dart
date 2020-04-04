@@ -15,6 +15,8 @@ class Home extends StatelessWidget{
               child: Text("Select an implementation", style: TextStyle(color: Colors.white, letterSpacing: 2),),
             ),
             RaisedButton.icon(
+              //Navigation to the firebase implementation
+              //Passing one String as param
               onPressed: (){Navigator.pushNamed(context, '/firebaseBikes', arguments:"Firebase implementation");}, 
               color: Colors.black,
               icon: Icon(
@@ -24,6 +26,8 @@ class Home extends StatelessWidget{
               label: Text("Firebase implementation", style:TextStyle(color:Colors.white),)
               ),
             RaisedButton.icon(
+              //Navigation to the normal implementation
+              //Passing one String as param
               onPressed: (){Navigator.pushNamed(context, '/bikes',arguments:'Normal implementation');},
               color: Colors.black,
               icon: Icon(

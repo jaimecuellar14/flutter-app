@@ -1,3 +1,8 @@
+/**
+ * Bike model to get the bikes from the .json file
+ * And also creating a new Bike
+ */
+
 class BikeModel {
   int id;
   String framesize;

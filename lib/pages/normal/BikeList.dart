@@ -5,22 +5,26 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:internetstores/models/BikeModel.dart';
-import 'package:internetstores/services/Database.dart';
 
 class BikeList extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return new BikeListState();
   }
 
 }
 
 class BikeListState extends State<BikeList>{
+  //List of Bikes created
+  //To be used as state for the widget
   List<BikeModel> bikesData;
-  dynamic test;
 
 
+  /**
+   * Function that will get the .json file from assets
+   * and set the state so that in any change of the state
+   * the widget re-renders and show the data changes.
+   */
   loadBikesData() async{
     String data = await rootBundle.loadString('lib/assets/ISBikesData.json');
     List<BikeModel> jsonResponse = (json.decode(data) as List)
@@ -32,7 +36,9 @@ class BikeListState extends State<BikeList>{
     });
   }
 
-  
+  /**
+   * The loadBikesData function is executed right when the widget starts
+   */
   @override
   void initState(){
     super.initState();
@@ -41,6 +47,11 @@ class BikeListState extends State<BikeList>{
     });
   }
 
+  /**
+   * Function to add a bike
+   * it's added using the setState so the widget re-renders
+   * and shows the added bike
+   */
   void addBike(){
     showToast(context, "Bike added");
     setState(() {
@@ -51,6 +62,11 @@ class BikeListState extends State<BikeList>{
 
     print(bikesData);
   }
+  /**
+   * function to delete a bike
+   * setState is called so the widget re-renders
+   * and the removed bike is not displayed anymore
+   */
   void removeBike(id){
     showToast(context, "Bike removed");
     print(id);
@@ -58,6 +74,10 @@ class BikeListState extends State<BikeList>{
       bikesData.removeWhere((item)=> item.id==id);      
     });
   }
+  /**
+   * Function to show a simple toast
+   * Informing of the action (add/remove)
+   */
   void showToast(BuildContext context, String message){
     final scaffold = Scaffold.of(context);
     scaffold.showSnackBar(
@@ -73,7 +93,9 @@ class BikeListState extends State<BikeList>{
   }
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+    /**
+     * Widget showing the data from the bikes list
+     */
     return Scaffold(
       backgroundColor: Colors.grey[900],
       body: Center(

@@ -7,18 +7,18 @@ class BikeInfo extends StatefulWidget{
   BikeInfo(this.bike);
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return new BikeInfoState(bike);
   }
 
 }
-
+/**
+ * Widget that will show the data from the clicked bike on the list.
+ **/
 class BikeInfoState extends State<BikeInfo>{
   final BikeModel bike;
   BikeInfoState(this.bike);
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       appBar: AppBar(title:Text("${bike.name}"),backgroundColor: Colors.black,),
       body: Container(

@@ -21,6 +21,18 @@ class _FireBaseBikeState extends State<FireBaseBike>{
   final String data;
   _FireBaseBikeState(this.data);
 
+  /**
+   * Function to get the data from the .json file on the assets
+   * to later add that information to firebase firestore service.
+   */
+  loadBikesData() async{
+    String data = await rootBundle.loadString('lib/assets/ISBikesData.json');
+    List<BikeModel> jsonResponse = (json.decode(data) as List)
+                    .map((bike)=> BikeModel.fromJson(bike))
+                    .toList();
+      
+    addToFireStore(jsonResponse);
+  }
   @override
   void initState(){
     super.initState();
@@ -28,16 +40,12 @@ class _FireBaseBikeState extends State<FireBaseBike>{
       await loadBikesData();
     });
   }
-  loadBikesData() async{
-    String data = await rootBundle.loadString('lib/assets/ISBikesData.json');
-    List<BikeModel> jsonResponse = (json.decode(data) as List)
-                    .map((bike)=> BikeModel.fromJson(bike))
-                    .toList();
-    
-    //print(jsonResult);
-    addToFireStore(jsonResponse);
-    //DatabaseService().getBikes();
-  }
+  
+  /**
+   * Function getting a list of bikes
+   * Then calling the database service to add the bike
+   * to firebase
+   */
   void addToFireStore(bikes){
     for (var i = 0; i < bikes.length; i++) {
       DatabaseService().addBikesToFireStore(bikes[i]);
@@ -45,6 +53,12 @@ class _FireBaseBikeState extends State<FireBaseBike>{
   }
   @override
   Widget build(BuildContext context) {
+    /**
+     * Widget using the StreamProvider Widget
+     * so the Widget is "open" to reciving changes
+     * from firebase.
+     * 
+     */
    return StreamProvider<List<BikeModel>>.value(
       value: DatabaseService().bikes,
       child:Scaffold(

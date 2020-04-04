@@ -1,5 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:internetstores/models/BikeModel.dart';
+
+/**
+ * Service to connect to firebase
+ * And execute CRUD operations
+ * (updated not added because its not in the scope of the problem)
+ */
 class DatabaseService {
   
   final databaseReference = Firestore.instance;

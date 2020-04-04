@@ -7,30 +7,32 @@ class Bikes extends StatefulWidget{
   Bikes(this.data);
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return new BikesState(data);
   }
 
 }
 
 class BikesState extends State<Bikes>{
+  //Variable passed as String
+  //From the navigation
+  //To be shoed on the appbar
   final String data;
   BikesState(this.data);
   dynamic bikeData;
   @override
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       backgroundColor: Colors.grey,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text("${data} page"),
+        title: Text("$data page"),
         backgroundColor: Colors.black,
         centerTitle: true,
       ),
       body: Container(
         child: Center(
+          //We render the BikeList Widget
           child: BikeList(),
         ),
       ),

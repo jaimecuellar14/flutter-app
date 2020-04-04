@@ -6,6 +6,9 @@ import 'package:internetstores/pages/home.dart';
 import 'package:internetstores/pages/normal/bikes.dart';
 import 'package:internetstores/pages/BikeInfo.dart';
 
+//We run  the app with an initial route
+//That will render the Widget for that route.
+
 void main() => runApp(
   MaterialApp(
     onGenerateRoute: Router.generateRoute,
@@ -14,8 +17,10 @@ void main() => runApp(
 );
 
 class Router{
+  //We declarate the routes for the application
   static Route<dynamic> generateRoute(RouteSettings settings){
     switch(settings.name){
+      //First widget to be rendered
       case '/':
         return MaterialPageRoute(builder: (_)=> Home());
       case '/bikes':
