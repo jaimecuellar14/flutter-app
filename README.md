@@ -11,5 +11,5 @@ I had fun doing the app and realized how useful and fast it is to work with flut
 
 ### Installation
 
-You can clone the repo and run the application directly into your device or you can download the `.apk` from this drive link.
+You can clone the repo and run the application directly into your device or you can download the `.apk` from this drive link https://drive.google.com/open?id=1bu4cC6DtHl2Ir-O_LcPvgc4UNCa46pDm
 
